@@ -100,11 +100,6 @@ static time_t iso8601_timestamp(String iso8601_datetime_string) {
   return ts;
 }
 
-
-static bool sort_compare(const _PTT_OilPrice_t a, const _PTT_OilPrice_t b){
-   return ( strcmp(a.product, b.product)< 0); 
-}
-
 static void XML_parser(String data ) {
   OilList.clear();
   
@@ -142,12 +137,12 @@ int TridentTD_PTT_OilPrice::getCurrentOilPrice(PTT_OilPrice_t **oilprice) {
   size_t oilprice_size=0;
 
   if( !http.begin("http://www.pttplc.com/webservice/pttinfo.asmx")){
-    return -1;  // can't connect
+    return -1;  // can't connect error
   }else{
     http.addHeader("Content-Type", "text/xml; charset=utf-8");
     http.addHeader("SOAPAction", "\"http://www.pttplc.com/ptt_webservice/CurrentOilPrice\"");
     int httpCode = http.POST(HTTP_POST_BODY);
-    if( httpCode !=200) return -2;
+    if( httpCode !=200) return -2; //request error
 
     String payload = http.getString();
     http.end();
