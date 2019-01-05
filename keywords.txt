@@ -1,0 +1,22 @@
+#######################################
+# Syntax Coloring Map For Ultrasound
+#######################################
+
+TridentTD_PTT_OilPrice	KEYWORD3
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+PTT	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+getCurrentOilPrice	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+PTT_OilPrice_t	LITERAL1
